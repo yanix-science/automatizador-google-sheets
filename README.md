@@ -56,11 +56,11 @@ $env:GOOGLE_CREDENTIALS = Get-Content -Raw .\service_account.json
 [Environment]::SetEnvironmentVariable("GOOGLE_CREDENTIALS", (Get-Content -Raw .\service_account.json), "User")
 
 ```
-Seguridad y buenas prácticas
+### Seguridad y buenas prácticas:
 No subas nunca el archivo service_account.json a repositorios públicos.
 
-Usa la variable de entorno para proteger tus credenciales y evitar filtraciones.
+1. Usa la variable de entorno para proteger tus credenciales y evitar filtraciones.
 
-Cada colaborador debe configurar sus propias credenciales y variables de entorno localmente.
+2. Cada colaborador debe configurar sus propias credenciales y variables de entorno localmente.
 
-En tu .gitignore debes asegurarte de ignorar el archivo service_account.json para evitar subirlo accidentalmente.
+3. En tu .gitignore debes asegurarte de ignorar el archivo service_account.json para evitar subirlo accidentalmente.
