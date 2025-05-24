@@ -1,0 +1,10 @@
+# Ignorar archivo de credenciales de Google API
+service_account.json
+
+# Ignorar archivos pycache
+__pycache__/
+*.pyc
+
+# Archivos temporales de editores
+*.swp
+.DS_Store
