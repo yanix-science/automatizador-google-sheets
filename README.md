@@ -1,6 +1,7 @@
 # Automatizador de Google Sheets
 
-¡Este proyecto automatiza la actualización de una hoja de Google Sheets para llevar un control de quién ha respondido un formulario de Google Forms! Así, no tienes que marcar manualmente cada contacto que respondió: el script lo hace automáticamente.
+Este proyecto automatiza la actualización de una hoja de Google Sheets para llevar un control automático de quién ha respondido un formulario de Google Forms. Evita marcar manualmente los contactos, mejorando la productividad y precisión.
+
 
 ---
 
@@ -64,3 +65,15 @@ No subas nunca el archivo service_account.json a repositorios públicos.
 2. Cada colaborador debe configurar sus propias credenciales y variables de entorno localmente.
 
 3. En tu .gitignore debes asegurarte de ignorar el archivo service_account.json para evitar subirlo accidentalmente.
+
+## Preguntas frecuentes
+
+**¿Qué hago si obtengo error de autorización?**
+
+- Verifica que la hoja esté compartida con el correo de la cuenta de servicio.
+- Asegúrate de que la variable de entorno `GOOGLE_CREDENTIALS` esté correctamente configurada.
+- Revisa que las APIs estén activadas en Google Cloud Console.
+
+**¿Puedo usar este script sin variable de entorno?**
+
+Sí, pero solo en entornos locales y temporales. La variable de entorno es más segura para producción y colaboración.
