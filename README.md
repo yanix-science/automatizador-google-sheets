@@ -35,4 +35,13 @@ $env:GOOGLE_CREDENTIALS = Get-Content -Raw .\service_account.json
 [Environment]::SetEnvironmentVariable("GOOGLE_CREDENTIALS", (Get-Content -Raw .\service_account.json), "User")
 
 
+Si usas Linux/macOS Bash, ejecuta:
+export GOOGLE_CREDENTIALS="$(cat service_account.json)"
+3. Instalar dependencias
+pip install -r requirements.txt
+4. Ejecutar el script
+python main.py
+
+
+
 
