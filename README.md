@@ -28,14 +28,22 @@ Tienes dos opciones para configurar tus credenciales:
 Esta es la forma más rápida de empezar.
 
 1. Coloca el archivo `service_account.json` en la raíz de tu proyecto.  
-2. **Importante:** No subas este archivo a GitHub ni lo compartas públicamente.  
-3. Instala las dependencias:
+2. **Importante:** No subas este archivo a GitHub ni lo compartas públicamente.
+3. > **Recomendación:** Para evitar conflictos con otras librerías, se recomienda usar un entorno virtual de Python:
+
+```bash
+python -m venv venv
+source venv/Scripts/activate   # Windows
+source venv/bin/activate       # Linux/macOS
+pip install -r requirements.txt
+```
+5. Instala las dependencias:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Ejecuta el script:
+6. Ejecuta el script:
 
     ```bash
     python main.py
