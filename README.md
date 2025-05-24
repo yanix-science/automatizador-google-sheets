@@ -1,6 +1,7 @@
 # Automatizador Google Sheets
 
-Este proyecto automatiza la marcación de usuarios contactados en una hoja de cálculo de Google Sheets, verificando si han respondido a un formulario de Google Forms.
+Este proyecto automatiza la actualización de estados de contacto en una hoja de Google Sheets, basándose en respuestas recibidas en un formulario de Google Forms.  
+Ideal para equipos que manejan listas de contactos y quieren ahorrar tiempo marcando automáticamente quién respondió o no.
 
 ---
 
