@@ -1,14 +1,26 @@
 # Automatizador Google Sheets
 
-## Configuración local
+Este proyecto automatiza la marcación de usuarios contactados en una hoja de cálculo de Google Sheets, verificando si han respondido a un formulario de Google Forms.
 
-1. Obtener credenciales:
-   - Crear cuenta de servicio en Google Cloud Console
-   - Descargar archivo `service_account.json`
-   - Guardar el archivo en la raíz del proyecto (localmente, no subirlo a GitHub)
+---
 
-2. Instalar dependencias:
-    - pip install -r requirements.txt
+## ✅ Configuración local
 
-3. Ejecutar el script:
-    -python main.py
+### 1. Obtener credenciales
+
+- Ve a [Google Cloud Console](https://console.cloud.google.com/)
+- Crea un proyecto y habilita las APIs:
+  - Google Sheets API
+  - Google Drive API
+- Crea una **cuenta de servicio**
+- Asigna permisos de editor al correo de la cuenta de servicio sobre la hoja de cálculo
+- Descarga el archivo `service_account.json`
+- Guarda el archivo en la raíz del proyecto (⚠️ **No subir a GitHub**)
+
+### 2. Establecer variable de entorno
+
+#### En PowerShell (Windows)
+
+```powershell
+$env:GOOGLE_CREDENTIALS = Get-Content -Raw .\service_account.json
+[Environment]::SetEnvironmentVariable("GOOGLE_CREDENTIALS", (Get-Content -Raw .\service_account.json), "User")

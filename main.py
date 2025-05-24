@@ -1,6 +1,9 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import datetime
+import json
+import os 
+from google.oauth2.service_account import Credentials
 
 # Ruta del archivo JSON con credenciales para Google API
 RUTA_CREDENCIALES = 'service_account.json'
@@ -14,16 +17,22 @@ NOMBRE_PESTAÑA_RESPUESTAS = 'Form Responses 1'
 def google_sheet_client():
     """
     Crea y retorna un cliente autorizado para manipular Google Sheets
-    usando credenciales del archivo JSON y permisos necesarios.
+    usando credenciales desde variable de entorno segura.
 
     Returns:
         gspread.Client: Cliente autorizado para Google Sheets.
     """
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    credenciales = ServiceAccountCredentials.from_json_keyfile_name(RUTA_CREDENCIALES, scope)
-    cliente = gspread.authorize(credenciales)
+    credentials_info = json.loads(os.getenv('GOOGLE_CREDENTIALS'))
+
+    # Crear credenciales con acceso completo a Google Sheets y Drive
+    scopes = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+    credentials = Credentials.from_service_account_info(credentials_info, scopes=scopes)
+
+    # Cliente de gspread
+    cliente = gspread.authorize(credentials)
     print("✅ Conexión con Google Sheets establecida.")
     return cliente
+
 
 
 def abrir_hoja_por_nombre(cliente, nombre_hoja):
