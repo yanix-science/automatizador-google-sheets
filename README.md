@@ -1,27 +1,38 @@
 # Automatizador Google Sheets
 
-Este proyecto automatiza la actualización de estados de contacto en una hoja de Google Sheets, basándose en respuestas recibidas en un formulario de Google Forms.  
-Ideal para equipos que manejan listas de contactos y quieren ahorrar tiempo marcando automáticamente quién respondió o no.
+Este proyecto me ayuda a automatizar la actualización de una hoja de Google Sheets que uso para llevar el control de quién ha respondido un formulario de Google Forms.  
+Así, no tengo que estar marcando manualmente cada contacto que respondió, el script lo hace por mí.
 
 ---
 
-## ✅ Configuración local
+##  ¿Qué necesito antes de empezar?
 
-### 1. Obtener credenciales
+- Tener Python 3 instalado (recomiendo 3.8 o superior)  
+- Una cuenta de Google con acceso para crear proyectos en Google Cloud  
+- Crear un proyecto en Google Cloud y activar estas APIs:  
+  - Google Sheets API  
+  - Google Drive API  
+- Crear una **cuenta de servicio** en Google Cloud y descargar el archivo `service_account.json` con las credenciales  
+- Darle permisos de editor a esa cuenta de servicio en la hoja de cálculo que usarás
 
-- Ve a [Google Cloud Console](https://console.cloud.google.com/)
-- Crea un proyecto y habilita las APIs:
-  - Google Sheets API
-  - Google Drive API
-- Crea una **cuenta de servicio**
-- Asigna permisos de editor al correo de la cuenta de servicio sobre la hoja de cálculo
-- Descarga el archivo `service_account.json`
-- Guarda el archivo en la raíz del proyecto (⚠️ **No subir a GitHub**)
+---
 
-### 2. Establecer variable de entorno
+## ⚙ Cómo configurar todo localmente
 
-#### En PowerShell (Windows)
+### 1. Guardar las credenciales
+
+Guarda el archivo `service_account.json` en la raíz del proyecto.  
+**Importante:** no subir este archivo a GitHub ni compartirlo.
+
+### 2. Definir la variable de entorno para la credencial
+
+Esto es para que el script lea el JSON de forma segura sin tener el archivo directamente.
+
+Si usas **Windows PowerShell**, ejecuta:
 
 ```powershell
 $env:GOOGLE_CREDENTIALS = Get-Content -Raw .\service_account.json
 [Environment]::SetEnvironmentVariable("GOOGLE_CREDENTIALS", (Get-Content -Raw .\service_account.json), "User")
+
+
+
