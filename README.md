@@ -55,7 +55,7 @@ $env:GOOGLE_CREDENTIALS = Get-Content -Raw .\service_account.json
 # Para hacer la variable permanente (solo una vez)
 [Environment]::SetEnvironmentVariable("GOOGLE_CREDENTIALS", (Get-Content -Raw .\service_account.json), "User")
 
-
+```
 Seguridad y buenas prácticas
 No subas nunca el archivo service_account.json a repositorios públicos.
 
