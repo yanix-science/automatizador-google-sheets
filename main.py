@@ -1,17 +1,17 @@
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-import datetime
-import json
-import os 
-from google.oauth2.service_account import Credentials
+import gspread #Nos permite hablar con Google Sheets
+from oauth2client.service_account import ServiceAccountCredentials #Acceder a datos
+import datetime #Funciones de fecha y hora
+import json # Para manejar JSON
+import os  # Para manejar variables de entorno
+from google.oauth2.service_account import Credentials # Para manejar credenciales de Google AP
 
 # Ruta del archivo JSON con credenciales para Google API
 RUTA_CREDENCIALES = 'service_account.json'
 
 # Nombres de la hoja de cálculo y pestañas en Google Sheets
 NOMBRE_HOJA_GOOGLE = 'Automatizador'
-NOMBRE_PESTAÑA_DATOS = 'Automatizador'
-NOMBRE_PESTAÑA_RESPUESTAS = 'Form Responses 1'
+NOMBRE_PESTAÑA_DATOS = 'Automatizador_Pueba'
+NOMBRE_PESTAÑA_RESPUESTAS = 'FormsAutomatizador'
 
 
 def google_sheet_client():
@@ -102,6 +102,8 @@ def marcar_contactados(hoja):
     print(f"\n🔄 Proceso completado. {actualizados} contactos marcados como 'Sí'.")
 
 
+
+
 def main():
     """
     Función principal que establece conexión con Google Sheets,
@@ -110,6 +112,7 @@ def main():
     cliente = google_sheet_client()
     hoja = abrir_hoja_por_nombre(cliente, NOMBRE_HOJA_GOOGLE)
     marcar_contactados(hoja)
+    
 
 
 if __name__ == "__main__":
